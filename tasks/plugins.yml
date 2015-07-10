@@ -20,3 +20,6 @@
 - include: plugins/curator.yml
   when: es_install_curator is defined and es_install_curator
 
+# cloud-aws tool
+- include: plugins/cloud-aws.yml
+  when: es_install_cloudaws is defined and es_install_cloudaws

@@ -1,0 +1,11 @@
+---
+- name: get installed ES plugins list
+  shell: /usr/share/elasticsearch/bin/plugin -l
+  tags: es_cloudaws
+  register: es_cloudaws
+  changed_when: false
+
+- name: install cloudaws plugin
+  shell: /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-cloud-aws/2.5.0
+  tags: es_cloudaws
+  when: '"cloud-aws" not in es_cloudaws.stdout'
